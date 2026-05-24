@@ -135,8 +135,11 @@
     <div class="flex items-center gap-3">
       <!-- Embedded Notification Icon with dropdown -->
       <div class="relative">
-        <button onclick="toggleNotifications()" class="w-9 h-9 rounded-full bg-[var(--card)] border border-[var(--border)] flex items-center justify-center cursor-pointer text-sm shadow-sm hover:border-[var(--blue-light)] transition-all">
-          🔔
+        <button onclick="toggleNotifications()" class="w-9 h-9 rounded-full bg-[var(--card)] border border-[var(--border)] flex items-center justify-center cursor-pointer text-[var(--text2)] shadow-sm hover:border-[var(--blue-light)] transition-all" aria-label="Notifications">
+          <svg class="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+            <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path>
+            <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path>
+          </svg>
           <span class="absolute top-1 right-1 w-2 h-2 rounded-full bg-[var(--red)] animate-ping"></span>
           <span class="absolute top-1 right-1 w-2 h-2 rounded-full bg-[var(--red)]"></span>
         </button>
@@ -148,10 +151,22 @@
           </div>
           <div class="space-y-2 max-h-56 overflow-y-auto no-scrollbar">
             <div class="p-2.5 bg-emerald-950/25 border border-emerald-500/25 rounded-xl">
-              <span class="text-xs">🟢 <strong>All Prescriptions Presynced:</strong> AI routines loaded for local offline performance. Complete daily EMOM workouts!</span>
+              <span class="text-xs flex items-start gap-1.5">
+                <svg class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+                <span><strong>All Prescriptions Presynced:</strong> AI routines loaded for local offline performance. Complete daily EMOM workouts!</span>
+              </span>
             </div>
             <div class="p-2.5 bg-[var(--card)] border border-[var(--border)] rounded-xl opacity-90 text-[11px]">
-              <span>💪 <strong>Welcome back Athlete:</strong> Track sets directly, use custom circuits, toggles, calendars and journal logs.</span>
+              <span class="flex items-start gap-1.5">
+                <svg class="w-4 h-4 text-blue-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+                <span><strong>Welcome back Athlete:</strong> Track sets directly, use custom circuits, toggles, calendars and journal logs.</span>
+              </span>
             </div>
           </div>
         </div>
@@ -182,8 +197,10 @@
         </p>
         
         <!-- STREAK WIDGET -->
-        <div class="absolute top-6 right-4 bg-gradient-to-tr from-[var(--navy)] to-[var(--blue)] rounded-xl px-4 py-2.5 text-center shadow-lg border border-[rgba(90,141,232,0.25)]">
-          <div class="text-xl leading-none">🔥</div>
+        <div class="absolute top-6 right-4 bg-gradient-to-tr from-[var(--navy)] to-[var(--blue)] rounded-xl px-4 py-2.5 flex flex-col items-center shadow-lg border border-[rgba(90,141,232,0.25)] select-none">
+          <svg class="w-5 h-5 text-orange-400 fill-orange-400/20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+            <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"></path>
+          </svg>
           <div id="hud-streak-count" class="font-extrabold text-xl leading-tight text-white font-mono mt-0.5">7</div>
           <div class="text-[9px] uppercase tracking-[0.5px] text-zinc-300 font-semibold">Day Streak</div>
         </div>
@@ -207,15 +224,19 @@
 
       <!-- WORKOUT OF THE DAY QUICK ACTION -->
       <div class="bg-gradient-to-r from-[var(--navy)] via-[#0f2055] to-zinc-950 rounded-2xl p-4 flex items-center gap-4 cursor-pointer border border-[rgba(59,108,199,0.25)] hover:border-[var(--blue)] transition-all duration-200 shadow-md group text-left" onclick="navigateToPage('workouts'); navigateToWorkoutTab('circuits');">
-        <div class="w-12 h-12 rounded-xl bg-[var(--blue)] flex items-center justify-center text-2xl text-white shadow-lg group-hover:scale-105 transition-transform">
-          ⚡
+        <div class="w-12 h-12 rounded-xl bg-[var(--blue)] flex items-center justify-center text-white shadow-lg group-hover:scale-105 transition-transform shrink-0">
+          <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+          </svg>
         </div>
         <div class="flex-1">
           <div class="font-bold text-xs tracking-wide text-white uppercase font-sans">Today's Workout Loaded</div>
           <div class="text-[11px] text-zinc-400 mt-0.5">20-Min Upper Power EMOM · Compound Focus</div>
         </div>
-        <div class="text-lg text-[var(--blue-light)] group-hover:translate-x-1.5 transition-transform">
-          ▶
+        <div class="text-[var(--blue-light)] group-hover:translate-x-1.5 transition-transform shrink-0">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+            <polygon points="5 3 19 12 5 21 5 3"></polygon>
+          </svg>
         </div>
       </div>
 
@@ -223,28 +244,50 @@
       <div class="grid grid-cols-2 gap-3 text-left">
         <div class="bg-[var(--card)] rounded-2xl border border-[var(--border)] p-4 cursor-pointer hover:border-violet-500 transition-all relative overflow-hidden" onclick="navigateToPage('intro')">
           <div class="absolute top-0 left-0 right-0 h-[3px] bg-violet-500"></div>
-          <div class="text-2xl mb-1.5">🏁</div>
+          <div class="text-violet-400 mb-2">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="9" y1="3" x2="9" y2="21"></line>
+              <line x1="15" y1="3" x2="15" y2="21"></line>
+              <line x1="3" y1="9" x2="21" y2="9"></line>
+              <line x1="3" y1="15" x2="21" y2="15"></line>
+            </svg>
+          </div>
           <div class="font-extrabold text-[12px] tracking-wide text-[var(--text)] uppercase">App Info</div>
           <div class="text-[10px] text-[var(--gray-light)] leading-relaxed mt-1">Get started & tutorials</div>
         </div>
 
         <div class="bg-[var(--card)] rounded-2xl border border-[var(--border)] p-4 cursor-pointer hover:border-blue-500 transition-all relative overflow-hidden" onclick="navigateToPage('workouts')">
           <div class="absolute top-0 left-0 right-0 h-[3px] bg-blue-500"></div>
-          <div class="text-2xl mb-1.5">⚡</div>
+          <div class="text-blue-400 mb-2">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+            </svg>
+          </div>
           <div class="font-extrabold text-[12px] tracking-wide text-[var(--text)] uppercase">Workouts</div>
           <div class="text-[10px] text-[var(--gray-light)] leading-relaxed mt-1">prescriptions & circuits</div>
         </div>
 
         <div class="bg-[var(--card)] rounded-2xl border border-[var(--border)] p-4 cursor-pointer hover:border-emerald-500 transition-all relative overflow-hidden" onclick="navigateToPage('progress')">
           <div class="absolute top-0 left-0 right-0 h-[3px] bg-emerald-500"></div>
-          <div class="text-2xl mb-1.5">📈</div>
+          <div class="text-emerald-400 mb-2">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+            </svg>
+          </div>
           <div class="font-extrabold text-[12px] tracking-wide text-[var(--text)] uppercase">Progress</div>
           <div class="text-[10px] text-[var(--gray-light)] leading-relaxed mt-1">charts & calendars</div>
         </div>
 
         <div class="bg-[var(--card)] rounded-2xl border border-[var(--border)] p-4 cursor-pointer hover:border-amber-500 transition-all relative overflow-hidden" onclick="navigateToPage('community')">
           <div class="absolute top-0 left-0 right-0 h-[3px] bg-amber-500"></div>
-          <div class="text-2xl mb-1.5">🌎</div>
+          <div class="text-amber-400 mb-2">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="2" y1="12" x2="22" y2="12"></line>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+            </svg>
+          </div>
           <div class="font-extrabold text-[12px] tracking-wide text-[var(--text)] uppercase">Community</div>
           <div class="text-[10px] text-[var(--gray-light)] leading-relaxed mt-1">athlete feeds & chats</div>
         </div>
@@ -253,7 +296,11 @@
       <!-- TRENDING MOTIVATIONAL PREVIEWS -->
       <div class="text-left mt-2">
         <div class="text-xs font-bold tracking-[1.5px] uppercase text-[var(--gray-light)] mb-4 flex items-center gap-2">
-          🔥 Trending Fitness Feed
+          <svg class="w-4 h-4 text-orange-400" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+            <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+            <polyline points="17 6 23 6 23 12"></polyline>
+          </svg>
+          Trending Fitness Feed
           <div class="flex-1 h-[1px] bg-[var(--border)]"></div>
         </div>
         
@@ -267,7 +314,11 @@
     <section id="page-intro" class="page-view animate-fade-in hidden space-y-4 text-left">
       <div class="flex flex-col bg-gradient-to-b from-[rgba(27,58,122,0.1)] to-transparent px-4 py-6 rounded-2xl border border-[var(--border)]">
         <div class="flex flex-col items-center text-center">
-          <div class="w-16 h-16 rounded-2xl bg-[var(--card2)] border border-[var(--border)] flex items-center justify-center text-3xl mb-3 shadow-md">⚡</div>
+          <div class="w-16 h-16 rounded-2xl bg-[var(--card2)] border border-[var(--border)] flex items-center justify-center text-[var(--blue-light)] mb-3 shadow-md">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+            </svg>
+          </div>
           <h3 class="font-mono text-xl font-bold tracking-wide text-[var(--text)] uppercase">CaliMade Academy</h3>
           <p class="text-xs text-[var(--gray-light)] mt-1 max-w-md">Learn the elite mechanics of gravity-defying athletic movements and EMOM training metrics.</p>
         </div>
@@ -294,14 +345,27 @@
 
       <!-- WORKOUT SUB-TABS SELECTOR -->
       <div class="grid grid-cols-3 gap-2">
-        <button id="workout-tab-learn" onclick="navigateAndRenderWorkoutTab('learn')" class="py-2.5 px-2 rounded-xl text-center cursor-pointer font-bold text-xs uppercase tracking-wide border transition-all">
-          📖 Academy
+        <button id="workout-tab-learn" onclick="navigateAndRenderWorkoutTab('learn')" class="py-2.5 px-2 rounded-xl text-center cursor-pointer font-bold text-[10px] uppercase tracking-wide border flex items-center justify-center gap-1.5 transition-all">
+          <svg class="w-3.5 h-3.5 animate-pulse" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+          </svg>
+          Academy
         </button>
-        <button id="workout-tab-routine" onclick="navigateAndRenderWorkoutTab('routine')" class="py-2.5 px-2 rounded-xl text-center cursor-pointer font-bold text-xs uppercase tracking-wide border transition-all">
-          📆 Weekly Routine
+        <button id="workout-tab-routine" onclick="navigateAndRenderWorkoutTab('routine')" class="py-2.5 px-2 rounded-xl text-center cursor-pointer font-bold text-[10px] uppercase tracking-wide border flex items-center justify-center gap-1.5 transition-all">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="16" y1="2" x2="16" y2="6"></line>
+            <line x1="8" y1="2" x2="8" y2="6"></line>
+            <line x1="3" y1="10" x2="21" y2="10"></line>
+          </svg>
+          Routine
         </button>
-        <button id="workout-tab-circuits" onclick="navigateAndRenderWorkoutTab('circuits')" class="py-2.5 px-2 rounded-xl text-center cursor-pointer font-bold text-xs uppercase tracking-wide border transition-all">
-          ⚙️ Circuits Clock
+        <button id="workout-tab-circuits" onclick="navigateAndRenderWorkoutTab('circuits')" class="py-2.5 px-2 rounded-xl text-center cursor-pointer font-bold text-[10px] uppercase tracking-wide border flex items-center justify-center gap-1.5 transition-all">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+          </svg>
+          Circuits
         </button>
       </div>
 
@@ -325,8 +389,14 @@
 
       <!-- subtab contents: ROUTINE TRACKER -->
       <div id="subpage-routine" class="workout-content-view hidden space-y-3 text-left">
-        <div class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-3.5 mb-2.5 flex items-center gap-2">
-          <span>🎯</span>
+        <div class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-3.5 mb-2.5 flex items-center gap-2 text-left">
+          <span class="text-[var(--blue-light)] shrink-0">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10"></circle>
+              <circle cx="12" cy="12" r="6"></circle>
+              <circle cx="12" cy="12" r="2"></circle>
+            </svg>
+          </span>
           <p class="text-[11px] text-[var(--gray-light)] leading-relaxed">Select a training day to expand its prescriptions list. Mark drills done to record active sessions!</p>
         </div>
         <div id="weekly-days-list" class="space-y-3">
@@ -441,7 +511,14 @@
       <div class="bg-[var(--card)] border border-[var(--border)] rounded-2xl p-4 shadow-sm text-left">
         <div class="flex items-center justify-between mb-3.5 border-b border-[var(--border)] pb-2.5">
           <div class="flex items-center gap-2">
-            <span class="text-lg">📅</span>
+            <span class="text-[var(--blue-light)] shrink-0">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+            </span>
             <div>
               <h4 class="font-extrabold text-[11px] tracking-[1.5px] uppercase text-[var(--blue-light)] font-mono">Gym Session Tracker</h4>
               <p class="text-[9px] text-[var(--gray)] font-mono uppercase tracking-wider mt-0.5">Track your training days overtime</p>
@@ -449,14 +526,18 @@
           </div>
           
           <div class="flex items-center gap-1 bg-[var(--card2)] border border-[var(--border)] p-1 rounded-xl">
-            <button onclick="adjustCalendarMonth(-1)" class="text-[10px] font-bold text-[var(--gray-light)] hover:text-white cursor-pointer w-6 h-6 flex items-center justify-center rounded-lg bg-[var(--card)] border border-[var(--border)] hover:bg-neutral-800 font-mono">
-              ◀
+            <button onclick="adjustCalendarMonth(-1)" class="font-bold text-[var(--gray-light)] hover:text-white cursor-pointer w-6 h-6 flex items-center justify-center rounded-lg bg-[var(--card)] border border-[var(--border)] hover:bg-neutral-800 transition-colors" aria-label="Previous Month">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                <polyline points="15 18 9 12 15 6"></polyline>
+              </svg>
             </button>
             <span id="calendar-month-title" class="text-[9px] font-extrabold uppercase font-mono tracking-wider text-[var(--text)] px-1 whitespace-nowrap">
               May 2026
             </span>
-            <button onclick="adjustCalendarMonth(1)" class="text-[10px] font-bold text-[var(--gray-light)] hover:text-white cursor-pointer w-6 h-6 flex items-center justify-center rounded-lg bg-[var(--card)] border border-[var(--border)] hover:bg-neutral-800 font-mono">
-              ▶
+            <button onclick="adjustCalendarMonth(1)" class="font-bold text-[var(--gray-light)] hover:text-white cursor-pointer w-6 h-6 flex items-center justify-center rounded-lg bg-[var(--card)] border border-[var(--border)] hover:bg-neutral-800 transition-colors" aria-label="Next Month">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
             </button>
           </div>
         </div>
@@ -551,8 +632,8 @@
       <!-- profile hero badge area style-matching App.tsx -->
       <div class="relative overflow-hidden bg-gradient-to-b from-[rgba(27,58,122,0.14)] to-transparent px-4 py-8 flex flex-col items-center border border-[var(--border)] rounded-2xl">
         <!-- Local Theme Mode Toggler integrated into Profile View -->
-        <button onclick="toggleTheme()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-[var(--card)] border border-[var(--border)] flex items-center justify-center cursor-pointer text-base transition-colors shadow-sm active:scale-95" title="Toggle Theme">
-          <span id="theme-icon-indicator">☀️</span>
+        <button onclick="toggleTheme()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-[var(--card)] border border-[var(--border)] flex items-center justify-center cursor-pointer transition-colors shadow-sm active:scale-95" title="Toggle Theme" id="theme-icon-indicator">
+          <!-- Populated from JS on init -->
         </button>
 
         <div class="relative mb-3.5">
@@ -560,8 +641,11 @@
             AN
           </div>
           <!-- Edit button pen -->
-          <div onclick="editProfileProperty('name')" class="absolute bottom-0 right-0 w-8 h-8 rounded-full bg-[var(--blue)] border-2 border-[var(--bg)] flex items-center justify-center cursor-pointer text-xs shadow-md text-white hover:scale-105 active:scale-90 transition-transform">
-            ✏️
+          <div onclick="editProfileProperty('name')" class="absolute bottom-0 right-0 w-8 h-8 rounded-full bg-[var(--blue)] border-2 border-[var(--bg)] flex items-center justify-center cursor-pointer text-white shadow-md hover:scale-105 active:scale-90 transition-transform">
+            <svg class="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+              <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+              <path d="M18.5 2.5a2.121 2.121 0 1 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+            </svg>
           </div>
         </div>
 
@@ -603,7 +687,12 @@
           <span class="text-[10px] text-[var(--gray)] font-bold uppercase tracking-wider">Athlete Name</span>
           <div class="flex items-center gap-2">
             <span class="text-xs font-bold text-[var(--text)]" id="profile-row-name">Anthony Nicolaou</span>
-            <span>✏️</span>
+            <span class="text-[var(--gray-light)]">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                <path d="M18.5 2.5a2.121 2.121 0 1 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+              </svg>
+            </span>
           </div>
         </div>
 
@@ -611,7 +700,12 @@
           <span class="text-[10px] text-[var(--gray)] font-bold uppercase tracking-wider">Performance Level</span>
           <div class="flex items-center gap-2">
             <span class="text-xs font-bold text-[var(--text)]" id="profile-row-level">Intermediate</span>
-            <span>✏️</span>
+            <span class="text-[var(--gray-light)]">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                <path d="M18.5 2.5a2.121 2.121 0 1 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+              </svg>
+            </span>
           </div>
         </div>
 
@@ -619,7 +713,12 @@
           <span class="text-[10px] text-[var(--gray)] font-bold uppercase tracking-wider">Workout Goals</span>
           <div class="flex items-center gap-2">
             <span class="text-xs font-bold text-[var(--text)]" id="profile-row-goal">Endurance & Strength</span>
-            <span>✏️</span>
+            <span class="text-[var(--gray-light)]">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                <path d="M18.5 2.5a2.121 2.121 0 1 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+              </svg>
+            </span>
           </div>
         </div>
 
@@ -636,20 +735,36 @@
         </span>
         <div class="flex gap-2 p-2 overflow-x-auto no-scrollbar bg-[var(--card)] border border-[var(--border)] rounded-2xl">
           <div class="bg-[var(--card2)] border border-[var(--border)] rounded-xl p-3 flex flex-col items-center text-center w-20 shrink-0 select-none">
-            <div class="text-xl mb-0.5">🔥</div>
-            <span class="text-[9px] font-bold text-[var(--text)] leading-none text-center">7-Day Streak</span>
+            <svg class="w-6 h-6 text-orange-400 mb-1" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+              <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"></path>
+            </svg>
+            <span class="text-[9px] font-bold text-[var(--text)] leading-none text-center mt-1">7-Day Streak</span>
           </div>
           <div class="bg-[var(--card2)] border border-[var(--border)] rounded-xl p-3 flex flex-col items-center text-center w-20 shrink-0 select-none">
-            <div class="text-xl mb-0.5">💪</div>
-            <span class="text-[9px] font-bold text-[var(--text)] leading-none text-center">First PR</span>
+            <svg class="w-6 h-6 text-indigo-400 mb-1" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+              <path d="m6.5 6.5 11 11"></path>
+              <path d="m21 21-1-1"></path>
+              <path d="m3 3 1 1"></path>
+              <path d="m18.5 5.5 3 3-2.5 2.5-3-3z"></path>
+              <path d="m5.5 18.5 3 3-2.5 2.5-3-3z"></path>
+            </svg>
+            <span class="text-[9px] font-bold text-[var(--text)] leading-none text-center mt-1">First PR</span>
           </div>
           <div class="bg-[var(--card2)] border border-[var(--border)] rounded-xl p-3 flex flex-col items-center text-center w-20 shrink-0 select-none">
-            <div class="text-xl mb-0.5">⚡</div>
-            <span class="text-[9px] font-bold text-[var(--text)] leading-none text-center">EMOM Master</span>
+            <svg class="w-6 h-6 text-yellow-400 mb-1" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+            </svg>
+            <span class="text-[9px] font-bold text-[var(--text)] leading-none text-center mt-1">EMOM Master</span>
           </div>
           <div class="bg-[var(--card2)] border border-[var(--border)] rounded-xl p-3 flex flex-col items-center text-center w-20 shrink-0 select-none">
-            <div class="text-xl mb-0.5">🏆</div>
-            <span class="text-[9px] font-bold text-[var(--text)] leading-none text-center">Bronze Club</span>
+            <svg class="w-6 h-6 text-amber-500 mb-1" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+              <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
+              <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
+              <path d="M4 22h16"></path>
+              <path d="M10 14.66V17c0 .55-.45 1-1 1H4v2h16v-2h-5c-.55 0-1-.45-1-1v-2.34"></path>
+              <path d="M12 2a6 6 0 0 1 6 6c0 4.14-3.36 7.66-6 8-2.64-.34-6-3.86-6-8a6 6 0 0 1 12-6z"></path>
+            </svg>
+            <span class="text-[9px] font-bold text-[var(--text)] leading-none text-center mt-1">Bronze Club</span>
           </div>
         </div>
       </div>
@@ -664,27 +779,51 @@
   </main>
 
   <!-- ── APP FOOTER TAB BAR (5 Tabs Styled Exactly Like React) ── -->
-  <footer class="fixed bottom-0 left-0 right-0 border-t border-[var(--border)] backdrop-blur-md bg-[rgba(24,24,24,0.92)] text-white py-2.5 z-40">
+  <footer class="fixed bottom-0 left-0 right-0 border-t border-[var(--border)] backdrop-blur-md bg-[rgba(24,24,24,0.92)] text-white py-2 z-40">
     <div class="max-w-2xl mx-auto px-4 flex items-center justify-between text-center select-none">
-      <button onclick="navigateToPage('home')" id="bottom-btn-home" class="flex flex-col items-center gap-1.5 flex-1 cursor-pointer transition-transform active:scale-95 duration-75">
-        <span class="text-sm">🏠</span>
-        <span class="text-[8px] font-black uppercase tracking-wider text-[var(--gray-light)]">HUD</span>
+      <button onclick="navigateToPage('home')" id="bottom-btn-home" class="flex flex-col items-center gap-1 flex-1 cursor-pointer transition-transform active:scale-95 duration-75">
+        <span class="transition-all duration-200 text-[var(--gray-light)]">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+            <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+          </svg>
+        </span>
+        <span class="text-[8px] font-black uppercase tracking-wider text-[var(--gray-light)] transition-colors duration-200">HUD</span>
       </button>
-      <button onclick="navigateToPage('workouts')" id="bottom-btn-workouts" class="flex flex-col items-center gap-1.5 flex-1 cursor-pointer transition-transform active:scale-95 duration-75">
-        <span class="text-sm">⚡</span>
-        <span class="text-[8px] font-black uppercase tracking-wider text-[var(--gray-light)]">Workouts</span>
+      <button onclick="navigateToPage('workouts')" id="bottom-btn-workouts" class="flex flex-col items-center gap-1 flex-1 cursor-pointer transition-transform active:scale-95 duration-75">
+        <span class="transition-all duration-200 text-[var(--gray-light)]">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+          </svg>
+        </span>
+        <span class="text-[8px] font-black uppercase tracking-wider text-[var(--gray-light)] transition-colors duration-200">Workouts</span>
       </button>
-      <button onclick="navigateToPage('progress')" id="bottom-btn-progress" class="flex flex-col items-center gap-1.5 flex-1 cursor-pointer transition-transform active:scale-95 duration-75">
-        <span class="text-sm">📈</span>
-        <span class="text-[8px] font-black uppercase tracking-wider text-[var(--gray-light)]">Journal</span>
+      <button onclick="navigateToPage('progress')" id="bottom-btn-progress" class="flex flex-col items-center gap-1 flex-1 cursor-pointer transition-transform active:scale-95 duration-75">
+        <span class="transition-all duration-200 text-[var(--gray-light)]">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+          </svg>
+        </span>
+        <span class="text-[8px] font-black uppercase tracking-wider text-[var(--gray-light)] transition-colors duration-200">Journal</span>
       </button>
-      <button onclick="navigateToPage('community')" id="bottom-btn-community" class="flex flex-col items-center gap-1.5 flex-1 cursor-pointer transition-transform active:scale-95 duration-75">
-        <span class="text-sm">🌎</span>
-        <span class="text-[8px] font-black uppercase tracking-wider text-[var(--gray-light)]">Feed</span>
+      <button onclick="navigateToPage('community')" id="bottom-btn-community" class="flex flex-col items-center gap-1 flex-1 cursor-pointer transition-transform active:scale-95 duration-75">
+        <span class="transition-all duration-200 text-[var(--gray-light)]">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="2" y1="12" x2="22" y2="12"></line>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+          </svg>
+        </span>
+        <span class="text-[8px] font-black uppercase tracking-wider text-[var(--gray-light)] transition-colors duration-200">Feed</span>
       </button>
-      <button onclick="navigateToPage('profile')" id="bottom-btn-profile" class="flex flex-col items-center gap-1.5 flex-1 cursor-pointer transition-transform active:scale-95 duration-75">
-        <span class="text-sm">👤</span>
-        <span class="text-[8px] font-black uppercase tracking-wider text-[var(--gray-light)]">Profile</span>
+      <button onclick="navigateToPage('profile')" id="bottom-btn-profile" class="flex flex-col items-center gap-1 flex-1 cursor-pointer transition-transform active:scale-95 duration-75">
+        <span class="transition-all duration-200 text-[var(--gray-light)]">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+            <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+        </span>
+        <span class="text-[8px] font-black uppercase tracking-wider text-[var(--gray-light)] transition-colors duration-200">Profile</span>
       </button>
     </div>
   </footer>
@@ -1011,8 +1150,19 @@
       renderJournalNotes();
       renderCommunityFeed();
       syncHUDCounters();
+      syncThemeToggleIcon();
       navigateToPage('home'); // start on HUD
     });
+
+    // Helper to render dynamic SVG indicators for theme mode
+    function syncThemeToggleIcon() {
+      const iconBtn = document.getElementById('theme-icon-indicator');
+      if (iconBtn) {
+        iconBtn.innerHTML = isDark 
+          ? `<svg class="w-4 h-4 text-amber-400 fill-amber-400/20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg>`
+          : `<svg class="w-4 h-4 text-amber-500 fill-amber-500/10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg>`;
+      }
+    }
 
     // Toggle Theme (Dark/Light)
     function toggleTheme() {
@@ -1021,8 +1171,7 @@
       localStorage.setItem('cm_theme', isDark ? 'dark' : 'light');
       
       // Update toggle icon indicator
-      const iconBtn = document.getElementById('theme-icon-indicator');
-      if (iconBtn) iconBtn.innerText = isDark ? '🌙' : '☀️';
+      syncThemeToggleIcon();
       
       // Re-trigger visual SVG chart repaint
       renderSVGBarChart();
@@ -1048,16 +1197,30 @@
 
       // Update Bottom Nav Bar styles
       document.querySelectorAll('footer button').forEach(btn => {
-        btn.querySelector('span:first-child').classList.remove('scale-110');
-        btn.querySelector('span:last-child').classList.remove('text-[var(--blue-light)]', 'font-black');
-        btn.querySelector('span:last-child').classList.add('text-[var(--gray-light)]');
+        const iconSpan = btn.querySelector('span:first-child');
+        const labelSpan = btn.querySelector('span:last-child');
+        if (iconSpan) {
+          iconSpan.classList.remove('scale-110', 'text-[var(--blue-light)]');
+          iconSpan.classList.add('text-[var(--gray-light)]');
+        }
+        if (labelSpan) {
+          labelSpan.classList.remove('text-[var(--blue-light)]', 'font-black');
+          labelSpan.classList.add('text-[var(--gray-light)]');
+        }
       });
 
       const activeBtn = document.getElementById('bottom-btn-' + pageId);
       if (activeBtn) {
-        activeBtn.querySelector('span:first-child').classList.add('scale-110');
-        activeBtn.querySelector('span:last-child').classList.add('text-[var(--blue-light)]', 'font-black');
-        activeBtn.querySelector('span:last-child').classList.remove('text-[var(--gray-light)]');
+        const iconSpan = activeBtn.querySelector('span:first-child');
+        const labelSpan = activeBtn.querySelector('span:last-child');
+        if (iconSpan) {
+          iconSpan.classList.add('scale-110', 'text-[var(--blue-light)]');
+          iconSpan.classList.remove('text-[var(--gray-light)]');
+        }
+        if (labelSpan) {
+          labelSpan.classList.add('text-[var(--blue-light)]', 'font-black');
+          labelSpan.classList.remove('text-[var(--gray-light)]');
+        }
       }
 
       // Sync any global HUD Counters
@@ -1141,6 +1304,34 @@
       }
     }
 
+    // Helper to get vector icons for routine day types
+    function getRoutineTypeIcon(type) {
+      if (type === 'Strength') {
+        return `<svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="m6.5 6.5 11 11"></path><path d="m21 21-1-1"></path><path d="m3 3 1 1"></path><path d="m18.5 5.5 3 3-2.5 2.5-3-3z"></path><path d="m5.5 18.5 3 3-2.5 2.5-3-3z"></path></svg>`;
+      } else if (type === 'Recovery') {
+        return `<svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg>`;
+      } else if (type === 'Endurance') {
+        return `<svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>`;
+      } else if (type === 'Cardio') {
+        return `<svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>`;
+      }
+      return `<svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>`;
+    }
+
+    // Helper to get vector icons for academy categories
+    function getAcademyIcon(key) {
+      if (key === 'compounds') {
+        return `<svg class="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="m6.5 6.5 11 11"></path><path d="m21 21-1-1"></path><path d="m3 3 1 1"></path><path d="m18.5 5.5 3 3-2.5 2.5-3-3z"></path><path d="m5.5 18.5 3 3-2.5 2.5-3-3z"></path></svg>`;
+      } else if (key === 'statics') {
+        return `<svg class="w-6 h-6 text-teal-400" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect x="11" y="2" width="2" height="20" rx="1"></rect><path d="M17 5H7"></path><path d="m5 5 1 5h4l1-5"></path><path d="m19 5 1 5h-4l1-5"></path><path d="M8 10c0 4 4 6 4 6s4-2 4-6"></path></svg>`;
+      } else if (key === 'endurance') {
+        return `<svg class="w-6 h-6 text-amber-500" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M5 2h14"></path><path d="M5 22h14"></path><path d="M19 2v4c0 3.25-2.75 4.75-5 5.25v1.5c2.25.5 5 2 5 5.25v4"></path><path d="M5 2v4c0 3.25 2.75 4.75 5 5.25v1.5c-2.25.5-5 2-5 5.25v4"></path></svg>`;
+      } else if (key === 'isolations') {
+        return `<svg class="w-6 h-6 text-orange-400" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8zm0 2a2 2 0 1 1 0 4 2 2 0 0 1 0-4z"></path></svg>`;
+      }
+      return `<svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>`;
+    }
+
     // ── WEEKLY PRESCRIPTIONS RENDERER ──
     const activePrescriptionExpands = {};
     function renderWeeklyPrescriptions() {
@@ -1164,7 +1355,12 @@
                   <div class="text-xs font-bold text-[var(--gray-light)]">Active Rest Day</div>
                 </div>
               </div>
-              <span class="text-xs text-[var(--gray)]">🧘 Chill</span>
+              <div class="flex items-center gap-1.5 text-xs text-[var(--gray-light)]">
+                <svg class="w-4 h-4 text-violet-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+                </svg>
+                <span>Chill</span>
+              </div>
             </div>
           `;
         } else {
@@ -1183,7 +1379,9 @@
           workoutHeaderHtml = `
             <div class="flex items-center justify-between p-4 cursor-pointer" onclick="toggleRoutineExpand(${index})">
               <div class="flex items-center gap-3">
-                <div class="w-10 h-10 rounded-xl flex items-center justify-center text-white text-base select-none shadow-sm" style="background-color: ${w.color}">${w.icon}</div>
+                <div class="w-10 h-10 rounded-xl flex items-center justify-center text-white select-none shadow-sm" style="background-color: ${w.color}">
+                  ${getRoutineTypeIcon(w.type)}
+                </div>
                 <div>
                   <div class="text-[9px] font-bold uppercase tracking-widest text-[var(--gray)] font-mono">${item.day} · ${w.type}</div>
                   <div class="text-xs font-black text-[var(--text)] uppercase">${w.name}</div>
@@ -1272,7 +1470,7 @@
         elem.className = "bg-[var(--card)] border border-[var(--border)] hover:border-[var(--blue-light)] rounded-2xl p-4 cursor-pointer transition-all flex flex-col items-center text-center interactive-academy-hit";
         elem.onclick = () => openAcademyTopic(key);
         elem.innerHTML = `
-          <div class="text-2xl mb-1.5 select-none">${item.icon}</div>
+          <div class="mb-2 select-none">${getAcademyIcon(key)}</div>
           <span class="text-xs font-black uppercase text-[var(--text)] tracking-wide font-sans">${item.title}</span>
           <span class="text-[9px] text-[var(--gray-light)] uppercase font-semibold mt-1">Explore More</span>
         `;
@@ -1606,7 +1804,7 @@
         cellBtn.onclick = () => toggleCalendarCheck(cell.dateStr);
         cellBtn.innerHTML = `
           <span class="relative z-10 font-mono text-[10px]">${cell.num}</span>
-          ${checked ? '<span class="absolute bottom-1 text-[7px] leading-none text-emerald-400">🏋️</span>' : ''}
+          ${checked ? '<span class="absolute bottom-1 w-1 h-1 rounded-full bg-emerald-400 animate-pulse"></span>' : ''}
         `;
 
         grid.appendChild(cellBtn);
@@ -1697,8 +1895,11 @@
       logs.forEach(log => {
         container.innerHTML += `
           <div class="bg-[var(--card)] rounded-xl border border-[var(--border)] p-3.5 flex items-center gap-3 shadow-sm select-none">
-            <div class="w-10 h-10 rounded-xl bg-[rgba(59,108,199,0.12)] border border-[rgba(59,108,199,0.25)] flex items-center justify-center text-xl shrink-0">
-              ${log.icon || '💪'}
+            <div class="w-10 h-10 rounded-xl bg-emerald-950/20 border border-emerald-500/20 flex items-center justify-center shrink-0">
+              <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
             </div>
             <div class="flex-1 min-w-0">
               <div class="flex justify-between items-start">
@@ -1938,10 +2139,18 @@
 
             <!-- action bars metrics -->
             <div class="flex items-center gap-4 border-t border-[var(--border)] pt-2 select-none">
-              <button onclick="togglePostLike('${post.id}')" class="text-xs flex items-center gap-1 cursor-pointer hover:scale-105 transition-transform ${post.liked ? 'text-red-500 font-bold' : 'text-[var(--gray-light)]'}">
-                ${post.liked ? '❤️' : '🤍'} <span>${post.likes}</span>
+              <button onclick="togglePostLike('${post.id}')" class="text-xs flex items-center gap-1.5 cursor-pointer hover:scale-105 transition-transform ${post.liked ? 'text-red-500 font-bold' : 'text-[var(--gray-light)]'}">
+                ${post.liked 
+                  ? `<svg class="w-4 h-4 text-red-500 fill-red-500" fill="currentColor" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg>`
+                  : `<svg class="w-4 h-4 text-[var(--gray-light)]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg>`
+                } <span class="font-mono text-[11px] leading-none">${post.likes}</span>
               </button>
-              <span class="text-xs text-[var(--gray)] font-medium">💬 Comments (${post.comments ? post.comments.length : 0})</span>
+              <span class="text-xs text-[var(--gray)] font-medium flex items-center gap-1.5">
+                <svg class="w-4 h-4 text-[var(--gray-light)]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                </svg>
+                Comments (${post.comments ? post.comments.length : 0})
+              </span>
             </div>
 
             <!-- comment boxes list -->
