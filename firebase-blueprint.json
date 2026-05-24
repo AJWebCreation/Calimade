@@ -1,0 +1,106 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "User profile containing basic info",
+      "type": "object",
+      "properties": {
+        "displayName": { "type": "string" },
+        "email": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "goal": { "type": "string" },
+        "level": { "type": "string" },
+        "hasCompletedSurvey": { "type": "boolean" },
+        "coachAdvice": { "type": "string" }
+      },
+      "required": ["displayName", "email", "createdAt"]
+    },
+    "WorkoutLog": {
+      "title": "WorkoutLog",
+      "description": "Log of a performed workout session for a user",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "dur": { "type": "number" },
+        "exercises": { "type": "number" },
+        "date": { "type": "string" },
+        "timestamp": { "type": "number" },
+        "notes": { "type": "string" },
+        "userId": { "type": "string" }
+      },
+      "required": ["name", "dur", "exercises", "date", "timestamp", "userId"]
+    },
+    "Routine": {
+      "title": "Routine",
+      "description": "User's routine",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "days": { 
+          "type": "array",
+          "items": { "type": "object" }
+        }
+      },
+      "required": ["userId", "days"]
+    },
+    "CustomCircuits": {
+      "title": "CustomCircuits",
+      "description": "User's custom circuits",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "circuits": { 
+          "type": "array",
+          "items": { "type": "object" }
+        }
+      },
+      "required": ["userId", "circuits"]
+    },
+    "CommunityPost": {
+      "title": "CommunityPost",
+      "description": "A public post in the community",
+      "type": "object",
+      "properties": {
+        "author": { "type": "string" },
+        "authorId": { "type": "string" },
+        "initials": { "type": "string" },
+        "avatarColor": { "type": "string" },
+        "text": { "type": "string" },
+        "time": { "type": "string" },
+        "timestamp": { "type": "number" },
+        "likes": { "type": "number" },
+        "likedBy": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "comments": {
+          "type": "array",
+          "items": { "type": "object" }
+        }
+      },
+      "required": ["author", "authorId", "initials", "avatarColor", "text", "timestamp", "likes", "likedBy"]
+    }
+  },
+  "firestore": {
+    "users/{userId}": {
+      "schema": "User",
+      "description": "A user profile"
+    },
+    "users/{userId}/logs/{logId}": {
+      "schema": "WorkoutLog",
+      "description": "User's individual workout logs"
+    },
+    "users/{userId}/routine/{routineId}": {
+      "schema": "Routine",
+      "description": "User's weekly routine settings. routineId is 'weekly'"
+    },
+    "users/{userId}/customCircuits/{docId}": {
+      "schema": "CustomCircuits",
+      "description": "User's myCircuits list. docId is 'list'"
+    },
+    "communityPosts/{postId}": {
+      "schema": "CommunityPost",
+      "description": "Community posts visible to all users"
+    }
+  }
+}
